@@ -1,0 +1,1051 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Final Tests",
+		"_postman_id": "6f915a7a-7181-578a-797b-62ff4862b77e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User 1 post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rname = jsonData.name;",
+							"var raddress = jsonData.address;",
+							"var rphone_number = jsonData.phone_number;",
+							"var rd_license = jsonData.d_license;",
+							"var rdl_state = jsonData.dl_state;",
+							"var rauth = jsonData.auth;",
+							"tests[\"Name matches\"] = rname === \"User 1\";",
+							"tests[\"Address matches\"]= raddress === \"111 User Lane\";",
+							"tests[\"Phone number matches\"] = rphone_number === \"111-111-1111\";",
+							"tests[\"License matches\"]  = rd_license === \"A1111\";",
+							"tests[\"State matches\"] = rdl_state === \"Alabama\";",
+							"var user1 = jsonData.id;",
+							"postman.setEnvironmentVariable(\"user1\", user1);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1\", \"address\":\"111 User Lane\", \"phone_number\":\"111-111-1111\",\"d_license\":\"A1111\", \"dl_state\":\"Alabama\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rname = jsonData.name;",
+							"var raddress = jsonData.address;",
+							"var rphone_number = jsonData.phone_number;",
+							"var rd_license = jsonData.d_license;",
+							"var rdl_state = jsonData.dl_state;",
+							"tests[\"Name matches\"] = rname === \"User 1\";",
+							"tests[\"Address matches\"]= raddress === \"111 User Lane\";",
+							"tests[\"Phone number matches\"] = rphone_number === \"111-111-1111\";",
+							"tests[\"License matches\"]  = rd_license === \"A1111\";",
+							"tests[\"State matches\"] = rdl_state === \"Alabama\";",
+							"var user1 = jsonData.id;",
+							"postman.setEnvironmentVariable(\"user1\", user1);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account/{{user1}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1\", \"address\":\"111 User Lane\", \"phone_number\":\"111-111-1111\",\"d_license\":\"A1111\", \"dl_state\":\"Alabama\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rname = jsonData.name;",
+							"var raddress = jsonData.address;",
+							"var rphone_number = jsonData.phone_number;",
+							"var rd_license = jsonData.d_license;",
+							"var rdl_state = jsonData.dl_state;",
+							"var rauth = jsonData.auth;",
+							"tests[\"Name matches\"] = rname === \"User 2\";",
+							"tests[\"Address matches\"]= raddress === \"222 User Lane\";",
+							"tests[\"Phone number matches\"] = rphone_number === \"222-222-2222\";",
+							"tests[\"License matches\"]  = rd_license === \"B2222\";",
+							"tests[\"State matches\"] = rdl_state === \"California\";",
+							"var user2 = jsonData.id;",
+							"postman.setEnvironmentVariable(\"user2\", user2);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user2token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 2\", \"address\":\"222 User Lane\", \"phone_number\":\"222-222-2222\",\"d_license\":\"B2222\", \"dl_state\":\"California\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rname = jsonData.name;",
+							"var raddress = jsonData.address;",
+							"var rphone_number = jsonData.phone_number;",
+							"var rd_license = jsonData.d_license;",
+							"var rdl_state = jsonData.dl_state;",
+							"var rauth = jsonData.auth;",
+							"tests[\"Name matches\"] = rname === \"User 2\";",
+							"tests[\"Address matches\"]= raddress === \"222 User Lane\";",
+							"tests[\"Phone number matches\"] = rphone_number === \"222-222-2222\";",
+							"tests[\"License matches\"]  = rd_license === \"B2222\";",
+							"tests[\"State matches\"] = rdl_state === \"California\";",
+							"var user2 = jsonData.id;",
+							"postman.setEnvironmentVariable(\"user2\", user2);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account/{{user2}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user2token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 2\", \"address\":\"222 User Lane\", \"phone_number\":\"222-222-2222\",\"d_license\":\"B2222\", \"dl_state\":\"California\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 Patch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rname = jsonData.name;",
+							"var raddress = jsonData.address;",
+							"var rphone_number = jsonData.phone_number;",
+							"var rd_license = jsonData.d_license;",
+							"var rdl_state = jsonData.dl_state;",
+							"var rauth = jsonData.auth;",
+							"tests[\"Name matches\"] = rname === \"User 1 - Updated\";",
+							"tests[\"Address matches\"]= raddress === \"111 User Road - Updated\";",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account/{{user1}}",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1 - Updated\", \"address\":\"111 User Road - Updated\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 Put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rname = jsonData.name;",
+							"var raddress = jsonData.address;",
+							"var rphone_number = jsonData.phone_number;",
+							"var rd_license = jsonData.d_license;",
+							"var rdl_state = jsonData.dl_state;",
+							"var rauth = jsonData.auth;",
+							"tests[\"Name matches\"] = rname === \"User 1\";",
+							"tests[\"Address matches\"]= raddress === \"111 User Lane\";",
+							"tests[\"Phone number matches\"] = rphone_number === \"111-111-1111\";",
+							"tests[\"License matches\"]  = rd_license === \"A1111\";",
+							"tests[\"State matches\"] = rdl_state === \"Alabama\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account/{{user1}}",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1\", \"address\":\"111 User Lane\", \"phone_number\":\"111-111-1111\",\"d_license\":\"A1111\", \"dl_state\":\"Alabama\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 Get User 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 403\"] = responseCode.code === 403;",
+							"tests[\"Response is: Can only get your own account\"] = responseBody === \"Can only get your own account\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account/{{user1}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user2token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1\", \"address\":\"111 User Lane\", \"phone_number\":\"111-111-1111\",\"d_license\":\"A1111\", \"dl_state\":\"Alabama\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 Patch User 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 403\"] = responseCode.code === 403;",
+							"tests[\"Response is: Can only update your own account\"] = responseBody === \"Can only update your own account\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account/{{user1}}",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user2token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1 - Updated\", \"address\":\"111 User Road - Updated\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 Put User 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 403\"] = responseCode.code === 403;",
+							"tests[\"Response is: Can only update your own account\"] = responseBody === \"Can only update your own account\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account/{{user1}}",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user2token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1 - Updated\", \"address\":\"111 User Road - Updated\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Get All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"There are 2 Users returned\"] = jsonData.length === 2;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/account/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{admintoken}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1\", \"address\":\"111 User Lane\", \"phone_number\":\"111-111-1111\",\"d_license\":\"A1111\", \"dl_state\":\"Alabama\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Car 1 Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rmake = jsonData.make;",
+							"var rmodel = jsonData.model;",
+							"var rcolor = jsonData.color;",
+							"var rv_license = jsonData.v_license;",
+							"var rv_state = jsonData.v_state;",
+							"var ryear = jsonData.year;",
+							"tests[\"Make matches\"] = rmake === \"Make 1\";",
+							"tests[\"Model matches\"]= rmodel === \"Model 1\";",
+							"tests[\"Color matches\"] = rcolor === \"Black\";",
+							"tests[\"License matches\"]  = rv_license === \"VA1111\";",
+							"tests[\"State matches\"] = rv_state === \"Alabama\";",
+							"tests[\"Year Matches\"] = ryear === 2001;",
+							"var car1 = jsonData.id;",
+							"postman.setEnvironmentVariable(\"car1\", car1);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{admintoken}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"make\":\"Make 1\", \"model\":\"Model 1\", \"color\":\"Black\", \"v_license\":\"VA1111\", \"v_state\":\"Alabama\", \"year\":2001}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Car 1 Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rmake = jsonData.make;",
+							"var rmodel = jsonData.model;",
+							"var rcolor = jsonData.color;",
+							"var rv_license = jsonData.v_license;",
+							"var rv_state = jsonData.v_state;",
+							"var ryear = jsonData.year;",
+							"tests[\"Make matches\"] = rmake === \"Make 1\";",
+							"tests[\"Model matches\"]= rmodel === \"Model 1\";",
+							"tests[\"Color matches\"] = rcolor === \"Black\";",
+							"tests[\"License matches\"]  = rv_license === \"VA1111\";",
+							"tests[\"State matches\"] = rv_state === \"Alabama\";",
+							"tests[\"Year Matches\"] = ryear === 2001;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car/{{car1}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{admintoken}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"make\":\"Make 1\", \"model\":\"Model 1\", \"color\":\"Black\", \"v_license\":\"VA1111\", \"v_state\":\"Alabama\", \"year\":2001}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Car 2 Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rmake = jsonData.make;",
+							"var rmodel = jsonData.model;",
+							"var rcolor = jsonData.color;",
+							"var rv_license = jsonData.v_license;",
+							"var rv_state = jsonData.v_state;",
+							"var ryear = jsonData.year;",
+							"tests[\"Make matches\"] = rmake === \"Make 2\";",
+							"tests[\"Model matches\"]= rmodel === \"Model 2\";",
+							"tests[\"Color matches\"] = rcolor === \"White\";",
+							"tests[\"License matches\"]  = rv_license === \"VB2222\";",
+							"tests[\"State matches\"] = rv_state === \"Arizona\";",
+							"tests[\"Year Matches\"] = ryear === 2002;",
+							"var car2 = jsonData.id;",
+							"postman.setEnvironmentVariable(\"car2\", car2);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{admintoken}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"make\":\"Make 2\", \"model\":\"Model 2\", \"color\":\"White\", \"v_license\":\"VB2222\", \"v_state\":\"Arizona\", \"year\":2002}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Car 2 Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rmake = jsonData.make;",
+							"var rmodel = jsonData.model;",
+							"var rcolor = jsonData.color;",
+							"var rv_license = jsonData.v_license;",
+							"var rv_state = jsonData.v_state;",
+							"var ryear = jsonData.year;",
+							"tests[\"Make matches\"] = rmake === \"Make 2\";",
+							"tests[\"Model matches\"]= rmodel === \"Model 2\";",
+							"tests[\"Color matches\"] = rcolor === \"White\";",
+							"tests[\"License matches\"]  = rv_license === \"VB2222\";",
+							"tests[\"State matches\"] = rv_state === \"Arizona\";",
+							"tests[\"Year Matches\"] = ryear === 2002;",
+							"var car2 = jsonData.id;",
+							"postman.setEnvironmentVariable(\"car2\", car2);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car/{{car2}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{admintoken}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"make\":\"Make 2\", \"model\":\"Model 2\", \"color\":\"White\", \"v_license\":\"VB2222\", \"v_state\":\"Arizona\", \"year\":2002}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 Get All Cars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"There are 2 Cars returned\"] = jsonData.length === 2;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"make\":\"Make 1\", \"model\":\"Model 1\", \"color\":\"Black\", \"v_license\":\"VA1111\", \"v_state\":\"Alabama\", \"year\":2001}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Car 1 Patch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rmake = jsonData.make;",
+							"var rmodel = jsonData.model;",
+							"var rcolor = jsonData.color;",
+							"var rv_license = jsonData.v_license;",
+							"var rv_state = jsonData.v_state;",
+							"var ryear = jsonData.year;",
+							"tests[\"Make matches\"] = rmake === \"Make 1 - Updated\";",
+							"tests[\"Model matches\"]= rmodel === \"Model 1 - Updated\";",
+							"tests[\"Color matches\"] = rcolor === \"Black\";",
+							"tests[\"License matches\"]  = rv_license === \"VA1111\";",
+							"tests[\"State matches\"] = rv_state === \"Alabama\";",
+							"tests[\"Year Matches\"] = ryear === 2001;",
+							"var car1 = jsonData.id;",
+							"postman.setEnvironmentVariable(\"car1\", car1);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car/{{car1}}",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{admintoken}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"make\":\"Make 1 - Updated\", \"model\":\"Model 1 - Updated\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User  1 Post Car",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 403\"] = responseCode.code === 403;",
+							"tests[\"Response is: Only admins can create cars\"] = responseBody === \"Only admins can create cars\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"make\":\"Make 1\", \"model\":\"Model 1\", \"color\":\"Black\", \"v_license\":\"VA1111\", \"v_state\":\"Alabama\", \"year\":2001}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 Car Patch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 403\"] = responseCode.code === 403;",
+							"tests[\"Response is: Only admins can edit cars\"] = responseBody === \"Only admins can edit cars\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car/{{car1}}",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"make\":\"Make 1 - Updated\", \"model\":\"Model 1 - Updated\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Rental Car 1 User 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rstart_date = jsonData.start_date;",
+							"var rend_date = jsonData.end_date;",
+							"var raccount_id = jsonData.current_account;",
+							"tests[\"Start Date\"] = rstart_date === \"1/11/2011\";",
+							"tests[\"End Date\"] = rend_date === \"2/11/2011\";",
+							"tests[\"Account id correct\"] = raccount_id === environment.user1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car/{{car1}}/rental",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"account_id\":\"{{user1}}\", \"start_date\":\"1/11/2011\", \"end_date\":\"2/11/2011\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Rental Car 1 User 1 Again",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 403\"] = responseCode.code === 403;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car/{{car1}}/rental",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"account_id\":\"{{user1}}\", \"start_date\":\"1/11/2011\", \"end_date\":\"2/11/2011\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Rental Car 1 User 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"var rstart_date = jsonData.start_date;",
+							"var rend_date = jsonData.end_date;",
+							"tests[\"Start Date\"] = rstart_date === \"1/11/2011\";",
+							"tests[\"End Date\"] = rend_date === \"2/22/2011\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/car/{{car1}}/rental",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"end_date\":\"2/22/2011\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User1 Get All Rental",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 403\"] = responseCode.code === 403;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/rental/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1\", \"address\":\"111 User Lane\", \"phone_number\":\"111-111-1111\",\"d_license\":\"A1111\", \"dl_state\":\"Alabama\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 1 Get Rental",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"There is 1 Cars returned\"] = jsonData.length === 1;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/rental/{{user1}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user1token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1\", \"address\":\"111 User Lane\", \"phone_number\":\"111-111-1111\",\"d_license\":\"A1111\", \"dl_state\":\"Alabama\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User 2 Get User 1 Rental",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 403\"] = responseCode.code === 403;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/rental/{{user1}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "authorization",
+						"value": "{{user2token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"User 1\", \"address\":\"111 User Lane\", \"phone_number\":\"111-111-1111\",\"d_license\":\"A1111\", \"dl_state\":\"Alabama\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
